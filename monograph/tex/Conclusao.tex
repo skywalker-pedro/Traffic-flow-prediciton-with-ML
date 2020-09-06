@@ -1,0 +1,73 @@
+Esta monografia apresentou um trabalho de comparação de técnicas de aprendizado de máquina, aplicadas a problemas que envolvem predição de tráfego de veículos em cruzamentos. Mais especificamente, em cruzamentos de Brasília. Os modelos foram divididos em duas categorias: tradicionais e aprendizado profundo. Por meio dos resultados dos experimentos, confirmou-se a hipótese principal deste trabalho definida na Seção \ref{chapter:hipoteses}, que afirmou que modelos utilizados para predição de fluxo em vias livres podem ser aplicados a cenários de vias com cruzamentos. Dentre as contribuições dessa monografia, se tem a caracterização dos dados utilizados da Avenida Hélio Prates e a validação dos modelos para serem usados em cruzamentos.
+
+Primeiramente foi exposto o problema de congestionamento e como a predição de fluxo de veículos pode ajudar a mitigar esse problema ao ajudar os motoristas a tomar decisões melhores. Subsequentemente foram explorados os conceitos por trás de aprendizado de máquina e das 4 técnicas que foram comparadas nesta monografia. Para revisar a literatura a cerca do tópico, foram explorados 8 artigos, sendo 4 utilizando métodos tradicionais e 4 utilizando aprendizado de máquina. Nessa revisão fora mostrado em parte como que a literatura avalia suas técnicas e fora mostrado uma falha na exposição da metodologia na maioria dos mesmos quando não expuseram como foram feitas as otimizações.  
+
+Em seguida, foi discutido o tráfego e suas características, assim como os fatores que podem influenciar no seu comportamento. Foi visto que existem os fatores espaciais, temporais e exógenos, assim como os motivos que foram considerados para não utilizar-se os fatores exógenos. Foi feita uma caracterização dos dados, disponibilizados pelo \textit{\acrshort{DETRAN}}, utilizados para gerar a entrada dos modelos de predição. Nessa caracterização foram explicitadas as características dos dados e inconsistências encontradas ao longo do conjunto de dados.
+
+Discutiu-se também a metodologia empregada nos experimentos. Mostrou-se como foi feita a transformação dos dados do conjunto inicial de registros para um outro conjunto contendo o fluxo de veículos por intervalo de tempo. Foi explicado o tratamento adicional dado a algumas colunas, como a técnica de \textit{One Hot Enconding} que foi utilizada na coluna \textit{Data}. Foi feita uma análise de sazonalidade dos dados, o que explicou o motivo de certos períodos de tempo terem apresentado valores menores de fluxo. Foi explicado quais os modelos utilizados para as comparações e experimentos, assim como, de que maneira eles diferem entre si e quais as caraterísticas principais de cada um. Por último, foi mostrado como se deu a escolha dos melhores valores de parâmetros e hiper-parâmetros.
+
+Por fim, foram mostrados os resultados dos experimentos para a predição de fluxo de veículos para 15, 30, 45 e 60 minutos no futuro. Como esperado, todos os modelos de aprendizado de máquina tiveram melhores resultados que os modelos de base de comparação, conseguindo ajustar-se à distribuição dos dados, não só na métrica de regressão quanto na de classificação. Na métrica de classificação, os resultados, ainda que melhores que as bases de comparação, não foram tão promissores, com os modelos tradicionais atingindo por volta de 65\% de precisão. Também foi possível observar que dentre os modelos propostos, os que apresentaram os melhores valores de predição, no geral, foram o \textit{\acrshort{SVM}} e o \textit{\acrshort{RF}}. Isso mostrou que os modelos tradicionais ainda são capazes de competir com modelos mais novos e complexos. 
+
+Ainda sobre os resultados, também é possível afirmar que o apuramento dos mesmos mostrou que os modelos propostos melhoraram à medida que as predições eram mais próximas do presente, e à medida que recebiam mais tempo no passado para se basear. Além disso, com exceção de uma configuração do \textit{\acrshort{RF}}, os modelos de aprendizado profundo necessitaram de um maior poder computacional para realizar seus treinamentos. Portanto, validaram-se todas as hipóteses secundárias expostas na Seção \ref{chapter:hipoteses}.
+
+Por fim, pode-se dizer que a principal contribuição desta monografia foi aplicar os modelos de aprendizado de máquina, comumente utilizados em vias livres, a novos cenários. Realizando essa mudança de cenário e comparando os resultados das diversas técnicas utilizadas, foi possível ter um entendimento melhor das vantagens e desvantagens de cada uma delas, permitindo uma escolha de modelos mais adequada para trabalhos que possam aparecer futuramente.
+
+\section{Trabalhos Futuros}
+
+Este trabalho possui espaço para melhorias e ajustes que fugiram do escopo inicialmente definido. Dentre os trabalhos futuros possíveis, seguem alguns dos mais relevantes:
+
+\begin{itemize}
+    \item Treinar os modelos com pelo 1 ano de dados;
+    
+    Isso permitiria uma abordagem mais abrangente quanto a sazonalidade dos dados e como eles impactam no comportamento do fluxo. Além disso, os dados agora teriam incorporados as alterações que eventos ao longo do ano causam no fluxo.
+    
+    \item Polir a representação da coluna  \textit{Data} para os modelos;
+    
+    Simplificou-se a coluna \textit{Data} para uma representação referente somente ao dia da semana, porém, com uma representação mais complexa utilizando também a hora do dia, os modelos talvez se mostrassem mais eficazes.
+    
+    \item Considerar parâmetros não independentes;
+    
+    Devido a limitação de hardware, a escolha de parâmetros foi feita considerando que os parâmetros eram independentes. Porém seria interessante fazer uma verificação mais formal de independência ou realizar uma busca completa.
+    
+    \item Realizar escolha de parâmetros nas bases de comparação;
+    
+    Fazer como que o modelo \acrshort{MM} escolha qual o melhor intervalo de média e que o \textit{Naive} escolha qualquer dos fluxos.
+
+    \item Aplicar os modelos desenvolvidos a um conjunto de dados referente a vias livres;
+    
+    Ao se ter o desempenho dos modelos em vias livres, seria possível ter uma noção melhor de como os modelos treinados para cruzamento se saem em relação a modelos treinados em vias livres. Isto é, utilizando a mesma arquitetura, parâmetros e hiper-parâmetros.
+    
+    \item Utilizar múltiplos sensores para predição;
+    
+    Nesse trabalho utilizou-se apenas um dos sensores disponíveis, porém as informações dos outros sensores que estão próximos poderiam auxiliar na previsão.
+    
+    \item Utilizar modelos paramétricos;
+    
+    Devido a limitações de hardware e uma performance inicial ruim, decidiu-se retirar o \textit{\acrfull{ARIMA}} e o \textit{\acrfull{LR}}. Porém, existem outros modelos paramétricos que podem ser mais próprios para conjunto de dados utilizado como \textit{\acrfull{SARIMA}} que, talvez, tenha uma performance melhor.
+    
+    \item Analisar faixa independentemente;
+    
+    Verificar se é possível analisar as faixas da via de forma independente para que servisse em um sistema de carro autônomo. Isto é, o carro poderia mudar de faixa ao perceber que uma está prevista para piorar o fluxo.
+    
+    \item Realizar uma análise mais profunda dos dados;
+    
+    Analisar as condições de trânsito de Brasília e verificar se as mesmas se refletem no conjunto de dados disponível. Além disso, analisar quanto a sazonalidade de forma mais profunda.
+    
+    \item Incluir modelos não paramétricos mais complexos;
+    
+    Devido a limitações de hardware e tempo, o trabalho focou em arquiteturas simples em vez de arquiteturas como \textit{\acrshort{SLSTM}} discutidos no capítulo \ref{chapter:trabalhos_relacionados}. Estes poderiam ter uma performance melhor que os modelos mais simples.
+    
+    \item Aprofundar a escolha de parâmetros e hiper-parâmetros com mais opções;
+    
+    Nem todos os parâmetros e hiper-parâmetros de cada modelo foram explorado nesse trabalho. Sendo assim, é possível que possa haver uma melhora de performance dos modelos atuais.
+    
+    \item Incluir modelos diferentes;
+    
+    Não utilizou-se nenhum modelo \textit{boosted} nos experimentos, podendo ser que esse, ou outros tipos consigam traçar melhor a distribuição dos dados.
+    
+\end{itemize}
+
+% TODO: Dizer a proposta do TCC. Resumir as etapas das metodologias propostas para alcançar o objetivo do método proposto
+    % Descrever os resultados encontrados
+    % Descrever as vantagens, desvantagens e dificuldades encontradas
+    % Enaltecer as contribuições do trabalho
