@@ -1,6 +1,6 @@
-# Traffic Flow Prediction
+# Traffic Flow Prediction in Road Crossing using Machine Learning
 
-This is the final project of my course in Computer Science. The theme was traffic flow prediction and the result is this monography. Note: the monography is in portuguese since I'm brazilian.
+This Repository contains my Senior Thesis of my Bachelor's Degree in Computer Science.
 
 ## Abstract
 
@@ -8,7 +8,7 @@ Traffic flow prediction is a complex task. There are many challenging factors th
 
 ## Structure of Repository
 
-This project has 4 parts:
+This project contains 4 parts:
 
 + **Monograph** is the folder with the latex files that made the monograph;
 + **Presentation** is the folder with the latex files that made the presentation of this monograph;
