@@ -1,4 +1,4 @@
-# Traffic Flow Prediction in Road Crossing using Machine Learning
+# Traffic Flow Prediction in Road Crossings using Machine Learning
 
 This Repository contains my Senior Thesis of my Bachelor's Degree in Computer Science.
 
